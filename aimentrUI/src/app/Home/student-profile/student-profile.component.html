@@ -1,0 +1,231 @@
+<section class="py-5 ">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12  py-5">
+                <!-- Card -->
+                <mdb-card>
+                    <mdb-card-body>
+                        <mdb-card-title>
+                            <p class="text-center h3">Student Profile</p>
+                        </mdb-card-title>
+                        <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+                          </button> -->
+
+                        <mat-horizontal-stepper [linear]="isLinear" #Studentstepper class="StudentStepper mt-4">
+
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Personal :</b></ng-template>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-md-12">
+                                        <form #Personal="ngForm" novalidate>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="mail"
+                                                            [(ngModel)]="Payload.personal.mail" type="text" id="mail"
+                                                            class="form-control" #mail="ngModel" required readonly>
+                                                        <label for="mail">Mail*</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="firstname"
+                                                            [(ngModel)]="Payload.firstname" type="text" id="firstname"
+                                                            class="form-control" #firstname="ngModel" required>
+                                                        <label for="firstname">First name*</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="lastname"
+                                                            [(ngModel)]="Payload.lastname" type="text" id="lastname"
+                                                            class="form-control" #lastname="ngModel" required>
+                                                        <label for="lastname">Last name*</label>
+                                                    </div>
+                                                </div>
+                                                
+                                                
+
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="mobile"
+                                                            [(ngModel)]="Payload.personal.mobile" type="number"
+                                                            id="mobile" class="form-control" min="10" max="10" #mobile="ngModel" required>
+                                                        <label for="mobile">Mobile Number*</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="password"
+                                                            [(ngModel)]="Payload.password" type="password"
+                                                            id="password" class="form-control" minlength="6" #password="ngModel" required>
+                                                        <label for="password">Password (Minimum 6 letters)*</label>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="col-md-4">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>DOB</mat-label>
+                                                        <input matInput [matDatepicker]="dob" name="dob" [(ngModel)]="Payload.personal.dob">
+                                                        <mat-datepicker-toggle matSuffix [for]="dob">
+                                                        </mat-datepicker-toggle>
+                                                        <mat-datepicker #dob></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div> -->
+                                                <!-- <div class="col-md-6">
+                                                    <div class=" form-sm mt-3">
+                                                        <label for="Gender">Gender</label>
+                                                        <br>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Male"
+                                                                name="gender" value="Male" mdbInput
+                                                                [(ngModel)]="Payload.personal.gender">
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Male">Male</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Female"
+                                                                name="gender" value="Female" mdbInput
+                                                                [(ngModel)]="Payload.personal.gender">
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Female">Female</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Other"
+                                                                name="gender" value="Other" mdbInput
+                                                                [(ngModel)]="Payload.personal.gender">
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Other">Other</label>
+                                                        </div>
+                                                    </div>
+                                                </div> -->
+
+                                                
+                                                <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="location"
+                                                            [(ngModel)]="Payload.personal.location" type="text"
+                                                            id="location" class="form-control" #location="ngModel"
+                                                            required>
+                                                        <label for="location">Location*</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="md-form form-sm">
+                                                        <textarea type="text" id="about" name="about"
+                                                            [(ngModel)]="Payload.personal.about"
+                                                            class="md-textarea form-control" #about="ngModel"
+                                                            mdbInput minlength="150" required></textarea>
+                                                        <label for="about">About (Minimum 150 characters)* </label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                [disabled]="!Personal.valid" mdbWavesEffect matStepperNext
+                                                (click)="personalToWork()">
+                                                Next
+                                                <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Education :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="university" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="College" type="text"
+                                                            id="College" class="form-control" required>
+                                                        <label for="College">College*</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Degree</mat-label>
+                                                        <mat-select name="degree" [(ngModel)]="Payload.education.degree"
+                                                            required>
+                                                            <mat-option value="B-Tech">B-Tech</mat-option>
+                                                            <mat-option value="BSC">BSC</mat-option>
+                                                            <mat-option value="BCom">BCom</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Graduation Year</mat-label>
+                                                        <mat-select name="graduationYear"
+                                                            [(ngModel)]="Payload.education.graduationYear" required>
+                                                            <mat-option *ngFor="let item of GraduationYear"
+                                                                [value]="item">{{item}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="tasks" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Skills" type="text"
+                                                            id="Skills" class="form-control" required>
+                                                        <label for="Skills">Skills*</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext (click)="OnSubmitRegistrationForm()">
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                        </mat-horizontal-stepper>
+
+
+
+
+
+
+                    </mdb-card-body>
+                </mdb-card>
+                <!-- Card -->
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>

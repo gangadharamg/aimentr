@@ -1,0 +1,35 @@
+<div class="d-flex align-items-center justify-content-center mb-3">
+    <div class="form-group mb-0 mr-4 d-flex flex-column">
+        <label for="language">Select Source Language</label>
+        <select class="form-control-sm" name="language" [(ngModel)]="sourceLang" (change)="getLanguages()">
+          <option value="te">Telugu</option>
+          <option value="en">English</option>
+        </select> 
+    </div>
+  <div class="form-group mb-0 mr-4 d-flex flex-column">
+      <label for="language">Select Target Language</label>
+      <select class="form-control-sm" name="language" [(ngModel)]="targetLang">
+          <option value="{{opt.language}}" *ngFor="let opt of languages;">{{ opt.name}}</option>
+      </select>
+  </div>
+  <button class="btn btn-primary mt-3" (click)="!speechRecongitionStatus ? talk() : mute()">{{ !speechRecongitionStatus ? 'Talk' : "Mute" }}</button>
+</div>
+<div class="d-flex flex-column align-items-center bg-dark m-5 p-3">
+  <ul class="list-style-none" *ngFor="let r of translatedText;let i = index;">
+    <li>
+      <h4 class="text-white">{{i}}:: {{ r }}</h4>
+    </li>
+  </ul>
+</div>
+
+<!-- <p class="bg-dark text-white">{{ translatedText }}</p> -->
+
+
+
+
+<div class="form__group">
+  <!-- <label for="" class="form__label"></label> -->
+  <input type="file" #file class="form__input validate-empty " name="resume"
+       id="resume" placeholder="Choose a file"
+      (change)="fileChangeEvent($event)" required />
+</div>

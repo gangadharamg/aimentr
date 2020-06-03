@@ -1,0 +1,32 @@
+<div class="text-center">
+    <span *ngIf="course.courseLevel == 'programming'">
+        <video height="250px" autoplay muted></video>
+    </span>
+    <span *ngIf="course.courseLevel == 'nonprogramming'">
+        <video class="videoconfarance" autoplay muted></video>
+    </span>
+
+  
+    <div class="row">
+        <div class="col-md-12 pt-3">
+            <mat-form-field>
+                <mat-label>Select Languages</mat-label>
+                <select matNativeControl required name="language" [(ngModel)]="selectedLanguage">
+                    <option value="{{opt.language}}" *ngFor="let opt of languages;">{{opt.name}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <button mdbBtn type="button" color="pink" *ngIf="role == 'admin'" (click)="mute()"
+                [disabled]="!speechRecongitionStatus" size="sm" mdbWavesEffect>Mute</button>
+            <button mdbBtn type="button" color="cyan" *ngIf="role == 'admin'" (click)="talk()" size="sm" mdbWavesEffect
+                [disabled]="speechRecongitionStatus">Talk</button>
+        </div>
+        <div class="col-md-12">
+            <h2 class="mt-3">{{subtitles}}</h2>
+        </div>
+    </div>
+
+
+
+</div>

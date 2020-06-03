@@ -1,0 +1,56 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+* {
+    font-family: "Roboto";
+    
+}
+
+//Shiva krishna
+.mat-step-header .mat-step-icon-selected,
+.mat-step-header .mat-step-icon-state-done,
+.mat-step-header .mat-step-icon-state-edit {
+    background-color: #00bcd4 !important;
+    color: #fff;
+}
+.cursor-pointer {
+    cursor: pointer;
+}
+.line-height {
+    line-height: 1.5 !important;
+}
+.btn-rounded {
+    border-radius: 25px !important;
+}
+
+.StudentStepper {
+    .mat-horizontal-stepper-header-container {
+        white-space: nowrap;
+        display: flex;
+        width: 40% !important;
+        margin: auto;
+        align-items: center;
+    }
+}
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #ec407a !important;
+}
+
+.mat-radio-inner-circle {
+    background-color: #ec407a !important;
+}
+.mat-radio-outer-circle {
+    border-color: #ff4081 !important;
+}
+.line-height2 {
+    line-height: 3 !important;
+}
+
+
+
+.CodeMirror {
+    // background-color: #f62 !important;
+    height: 420px !important;
+    overflow: scroll;
+    overflow-x: hidden;
+  }

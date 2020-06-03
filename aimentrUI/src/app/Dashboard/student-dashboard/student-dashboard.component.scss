@@ -1,0 +1,26 @@
+.learnContentCards {
+    min-height: 100px;
+    transition: 0.2s linear;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #ec407a;
+}
+.learnContentCards:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -4px, 0);
+}
+.ico{
+    color:blue ;
+    width: 90px !important;
+}
+.vl{
+    height: 180px;
+    border-left: 1px solid grey;
+}
+.badges{
+    width: 150px;
+}
+
+.profile {
+    height: 150px;
+}

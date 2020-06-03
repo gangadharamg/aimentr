@@ -1,0 +1,38 @@
+<section class="py-5 ">
+    <div class="container">
+
+        <div class="row border-bottom">
+            <div class="col-md-12 pt-5">
+                <h1>Please Verify Your EMail</h1>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6 py-5 text-center">
+                <h2 class="text-uppercase">Confirmation required</h2>
+                <p>We have sent you email with OTP, which you must enter otp to finish verification. </p>
+
+                <div class="my-4">
+                    <form #otp="ngForm" novalidate>
+                        <div class="md-form ">
+                            <input mdbInput mdbValidate name="otp" type="text" id="otp" class="form-control"
+                                [(ngModel)]="VerifyOtp.otp" #otp="ngModel" minlength="6" maxlength="6" required>
+                            <label for="otp">OTP</label>
+                        </div>
+                    </form>
+                </div>
+
+                <div>
+                    <button mdbBtn type="button" class="float-right" color="cyan" mdbWavesEffect
+                        (click)="proceed()" [disabled]="!otp.valid">Proceed</button>
+                    <button mdbBtn type="button" class="float-left" color="primary" mdbWavesEffect
+                        (click)="resendOtp()">resend verifycation code</button>
+                </div>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</section>

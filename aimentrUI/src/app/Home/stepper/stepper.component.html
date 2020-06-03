@@ -1,0 +1,638 @@
+<section class="py-5 ">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 py-5">
+                <!-- Card -->
+                <mdb-card>
+                    <mdb-card-body>
+                        <mdb-card-title>
+                            <p class="text-center h3">Mentorship Registration</p>
+                        </mdb-card-title>
+                        <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+                          </button> -->
+
+                        <mat-horizontal-stepper [linear]="isLinear" #Mentorshipstepper class="mt-4">
+
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Personal :</b></ng-template>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-md-12">
+                                        <!-- <div class="md-form">
+                                            <mdb-icon fas icon="envelope" class="purple-text prefix"></mdb-icon>
+                                            <input mdbInput mdbValidate type="text" id="form2" class="form-control"
+                                            class="form-control" #FirstName="ngModel"   [(ngModel)]="UserDetails.FirstName" required>
+                                            <label for="form2">Example label</label>
+                                          </div> -->
+                                        <form #UserDetailsForm="ngForm" novalidate>
+                                            <div class="row">
+                                                <!-- <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <mdb-icon fas icon="user" class="purple-text active prefix">
+                                                        </mdb-icon>
+                                                        <input mdbInput mdbValidate name="FirstName" type="text"
+                                                            id="FirstName" class="form-control"
+                                                            [(ngModel)]="UserDetails.FirstName" #FirstName="ngModel"
+                                                            required>
+                                                        <label for="FirstName">First Name</label>
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="envelope" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Mail" type="email" id="Mail"
+                                                            class="form-control" required>
+                                                        <label for="Mail">Mail</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="user-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Name" type="text" id="Name"
+                                                            class="form-control" required>
+                                                        <label for="Name">Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="user-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="MobileNumber" type="number"
+                                                            id="MobileNumber" class="form-control" required>
+                                                        <label for="MobileNumber">Mobile Number</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class=" form-sm">
+
+                                                        <label for="Gender">Gender</label>
+                                                        <br>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Male"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Male">Male</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Female"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Female">Female</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Other"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Other">Other</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Date</mat-label>
+                                                        <input matInput [matDatepicker]="Date">
+                                                        <mat-datepicker-toggle matSuffix [for]="Date">
+                                                        </mat-datepicker-toggle>
+                                                        <mat-datepicker #Date></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="map-marker-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Location" type="text"
+                                                            id="Location" class="form-control" required>
+                                                        <label for="Location">Location</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon> -->
+                                                        <textarea type="text" id="About"
+                                                            class="md-textarea form-control" mdbInput></textarea>
+                                                        <label for="About">About</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next
+                                                <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Work :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Experience Level</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="Beginner">Beginner</mat-option>
+                                                            <mat-option value="Intermediate">Intermediate</mat-option>
+                                                            <mat-option value="Expert">Expert</mat-option>
+                                                            <mat-option value="Professional">Professional</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h2 class="mb-0">Working Experience</h2>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="Company" type="text"
+                                                            id="Company" class="form-control" required>
+                                                        <label for="Company">Company</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="Role" type="text" id="Role"
+                                                            class="form-control" required>
+                                                        <label for="Role">Role</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100">
+                                                        <mat-label>Start Date</mat-label>
+                                                        <input matInput [matDatepicker]="StartDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="StartDate">
+                                                        </mat-datepicker-toggle>
+                                                        <mat-datepicker #StartDate></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100">
+                                                        <mat-label>End Date</mat-label>
+                                                        <input matInput [matDatepicker]="EndDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="EndDate">
+                                                        </mat-datepicker-toggle>
+                                                        <mat-datepicker #EndDate></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="md-form form-sm">
+                                                        <textarea type="text" id="Description"
+                                                            class="md-textarea form-control" mdbInput></textarea>
+                                                        <label for="Description">Description</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Education :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="university" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="College" type="text"
+                                                            id="College" class="form-control" required>
+                                                        <label for="College">College</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Degree</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="B-Tech">B-Tech</mat-option>
+                                                            <mat-option value="BSC">BSC</mat-option>
+                                                            <mat-option value="BCom">BCom</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Graduation Year</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="2020">2020</mat-option>
+                                                            <mat-option value="2019">2019</mat-option>
+                                                            <mat-option value="2018">2018</mat-option>
+                                                            <mat-option value="2017">2017</mat-option>
+                                                            <mat-option value="2016">2016</mat-option>
+                                                            <mat-option value="2015">2015</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="tasks" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Skills" type="text"
+                                                            id="Skills" class="form-control" required>
+                                                        <label for="Skills">Skills</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                           
+                            <mat-step>
+                                <ng-template matStepLabel><b>Analysis :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="Designation" type="text"
+                                                            id="Designation" class="form-control" required>
+                                                        <label for="Designation">Designation</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="Technologies" type="text"
+                                                            id="Technologies" class="form-control" required>
+                                                        <label for="Technologies">Technologies</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="md-form form-sm">
+                                                        <textarea type="text" id="Context"
+                                                            class="md-textarea form-control" mdbInput></textarea>
+                                                        <label for="Context">Context</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+                            <mat-step>
+                                <ng-template matStepLabel><b> Learning Assets :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="AverageHoursDay" type="text"
+                                                            id="AverageHoursDay" class="form-control" required>
+                                                        <label for="AverageHoursDay">Average hours/ day</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <input mdbInput mdbValidate name="AverageCost" type="text"
+                                                            id="AverageCost" class="form-control" required>
+                                                        <label for="AverageCost">Average Cost</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Programmings you teach</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="Python">Python</mat-option>
+                                                            <mat-option value="Angular">Angular</mat-option>
+                                                            <mat-option value="AngularJS">AngularJS</mat-option>
+                                                            <mat-option value="NodeJs">NodeJs</mat-option>
+                                                            <mat-option value="Deep Learning">Deep Learning</mat-option>
+                                                            <mat-option value="Machine Learning">Machine Learning
+                                                            </mat-option>
+                                                            <mat-option value="Devops">Devops</mat-option>
+                                                            <mat-option value="Html5">Html5</mat-option>
+                                                            <mat-option value="CSS">CSS</mat-option>
+                                                            <mat-option value="Big Data">Big Data</mat-option>
+                                                            <mat-option value="C & C++">C & C++</mat-option>
+                                                            <mat-option value="Java">Java</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                            </div>
+
+                                        </form>
+
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                        </mat-horizontal-stepper>
+
+                    </mdb-card-body>
+                </mdb-card>
+                <!-- Card -->
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12  py-5">
+                <!-- Card -->
+                <mdb-card>
+                    <mdb-card-body>
+                        <mdb-card-title>
+                            <p class="text-center h3">Student Profile</p>
+                        </mdb-card-title>
+                        <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+                            {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+                          </button> -->
+
+                        <mat-horizontal-stepper [linear]="isLinear" #Studentstepper class="StudentStepper mt-4">
+
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Personal :</b></ng-template>
+                                <div class="row mx-5 my-4">
+                                    <div class="col-md-12">
+                                        <!-- <div class="md-form">
+                                            <mdb-icon fas icon="envelope" class="purple-text prefix"></mdb-icon>
+                                            <input mdbInput mdbValidate type="text" id="form2" class="form-control"
+                                            class="form-control" #FirstName="ngModel"   [(ngModel)]="UserDetails.FirstName" required>
+                                            <label for="form2">Example label</label>
+                                          </div> -->
+                                        <form #UserDetailsForm="ngForm" novalidate>
+                                            <div class="row">
+                                                <!-- <div class="col-md-4">
+                                                    <div class="md-form form-sm">
+                                                        <mdb-icon fas icon="user" class="purple-text active prefix">
+                                                        </mdb-icon>
+                                                        <input mdbInput mdbValidate name="FirstName" type="text"
+                                                            id="FirstName" class="form-control"
+                                                            [(ngModel)]="UserDetails.FirstName" #FirstName="ngModel"
+                                                            required>
+                                                        <label for="FirstName">First Name</label>
+                                                    </div>
+                                                </div> -->
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="envelope" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Mail" type="email" id="Mail"
+                                                            class="form-control" required>
+                                                        <label for="Mail">Mail</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="user-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Name" type="text" id="Name"
+                                                            class="form-control" required>
+                                                        <label for="Name">Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="user-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="MobileNumber" type="number"
+                                                            id="MobileNumber" class="form-control" required>
+                                                        <label for="MobileNumber">Mobile Number</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class=" form-sm">
+
+                                                        <label for="Gender">Gender</label>
+                                                        <br>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Male"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Male">Male</label>
+                                                        </div>
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Female"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Female">Female</label>
+                                                        </div>
+
+                                                        <div class="custom-control custom-radio custom-control-inline">
+                                                            <input type="radio" class="custom-control-input" id="Other"
+                                                                name="Gender" mdbInput>
+                                                            <label class="custom-control-label pt-1"
+                                                                for="Other">Other</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Date</mat-label>
+                                                        <input matInput [matDatepicker]="StudentDate">
+                                                        <mat-datepicker-toggle matSuffix [for]="StudentDate">
+                                                        </mat-datepicker-toggle>
+                                                        <mat-datepicker #StudentDate></mat-datepicker>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="map-marker-alt" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Location" type="text"
+                                                            id="Location" class="form-control" required>
+                                                        <label for="Location">Location</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="pencil-alt" class="prefix"></mdb-icon> -->
+                                                        <textarea type="text" id="About"
+                                                            class="md-textarea form-control" mdbInput></textarea>
+                                                        <label for="About">About</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next
+                                                <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                            <mat-step>
+                                <ng-template matStepLabel><b> Education :</b></ng-template>
+                                <div class="row  mx-5 my-4">
+                                    <div class="col-md-12">
+
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="university" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="College" type="text"
+                                                            id="College" class="form-control" required>
+                                                        <label for="College">College</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Degree</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="B-Tech">B-Tech</mat-option>
+                                                            <mat-option value="BSC">BSC</mat-option>
+                                                            <mat-option value="BCom">BCom</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <mat-form-field class="w-100 matFieldsAlign">
+                                                        <mat-label>Graduation Year</mat-label>
+                                                        <mat-select>
+                                                            <mat-option value="2020">2020</mat-option>
+                                                            <mat-option value="2019">2019</mat-option>
+                                                            <mat-option value="2018">2018</mat-option>
+                                                            <mat-option value="2017">2017</mat-option>
+                                                            <mat-option value="2016">2016</mat-option>
+                                                            <mat-option value="2015">2015</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="md-form form-sm">
+                                                        <!-- <mdb-icon fas icon="tasks" class="prefix">
+                                                        </mdb-icon> -->
+                                                        <input mdbInput mdbValidate name="Skills" type="text"
+                                                            id="Skills" class="form-control" required>
+                                                        <label for="Skills">Skills</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="mt-4">
+                                            <button class="float-right mb-4" type="button" mdbBtn color="cyan"
+                                                mdbWavesEffect matStepperNext>
+                                                Next <mdb-icon fas icon="angle-right" class="ml-1"></mdb-icon>
+                                            </button>
+                                            <!-- [disabled]="!UserDetailsForm.valid" -->
+                                            <button class="float-right mb-4" type="button" mdbBtn color="pink"
+                                                outline="true" mdbWavesEffect matStepperPrevious>
+                                                <mdb-icon fas icon="angle-left" class="mr-1"></mdb-icon> Back
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </mat-step>
+
+                        </mat-horizontal-stepper>
+
+
+
+
+
+
+                    </mdb-card-body>
+                </mdb-card>
+                <!-- Card -->
+
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>

@@ -1,0 +1,135 @@
+.hea {
+  font-size: 50px;
+  font-weight: 400;
+  color: #333;
+  line-height: 50px;
+}
+.para {
+  font-size: 35px;
+  color: #888;
+  font-weight: 300;
+  line-height: 40px;
+  margin-top: 5px;
+  display: inline-block;
+}
+.tabl {
+  font-family: "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-size: 18px;
+}
+.textfont {
+  font-family: "nunito", "helveticaneue", "helvetica neue", "Helvetica", "Arial", "sans-serif";
+  text-transform: none;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+}
+
+.mdb {
+  background-image: linear-gradient(
+      to top,
+      rgba(51, 51, 51, 0.8) 0%,
+      rgba(51, 51, 51, 0.7) 35%,
+      rgba(51, 51, 51, 0.3) 60%,
+      rgba(51, 51, 51, 0.3) 100%
+    ),
+    url("/assets/landing/blog-01a.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mdb1 {
+  background-image: linear-gradient(
+      to top,
+      rgba(51, 51, 51, 0.8) 0%,
+      rgba(51, 51, 51, 0.7) 35%,
+      rgba(51, 51, 51, 0.3) 60%,
+      rgba(51, 51, 51, 0.3) 100%
+    ),
+    url("/assets/landing/blog-02a.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.mdb2 {
+  //  background-image: url('/assets/images/blog-03a.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background: linear-gradient(
+      to top,
+      rgba(51, 51, 51, 0.8) 0%,
+      rgba(51, 51, 51, 0.7) 35%,
+      rgba(51, 51, 51, 0.3) 60%,
+      rgba(51, 51, 51, 0.3) 100%
+    ),
+    url("/assets/landing/blog-03a.jpg");
+}
+.learnContentCards {
+  min-height: 100px;
+  transition: 0.2s linear;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid #ec407a;
+}
+.learnContentCards:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+  -webkit-transform: translate3d(0, -2px, 0);
+  transform: translate3d(0, -6px, 0);
+}
+.hire-expert {
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.575), rgba(0, 0, 0, 0.445)),
+    url(/assets/landing/section-background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.top-mentors:hover {
+  border-left: 2px solid blue;
+  button {
+    background-color: blue !important;
+    color: white;
+  }
+}
+
+.md1 {
+  background-image: url("/assets/landing/job-category-01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.md2 {
+  background-image: url("/assets/landing/job-category-02.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.md3 {
+  background-image: url("/assets/landing/job-category-03.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.md4 {
+  background-image: url("/assets/landing/job-category-07.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.md5 {
+  background-image: url("/assets/landing/job-category-05.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.md6 {
+  background-image: url("/assets/landing/job-category-06.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media only screen and (max-width: 400px) {
+  .butt {
+    display: none;
+  }
+}

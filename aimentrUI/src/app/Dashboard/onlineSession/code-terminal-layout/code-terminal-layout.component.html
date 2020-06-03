@@ -1,0 +1,236 @@
+<!-- <div class="row mt-5">
+  <div class="col-12">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <app-editor (handleSessionEvent)="leftSession($event)"></app-editor>
+      </div>
+    </div>
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <app-drawingpad></app-drawingpad>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="row">
+      <div class="col-12 mb-2">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h2 class="card-title text-muted">Video</h2>
+            <app-live-video></app-live-video>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="card shadow-sm">
+          <div class="card-body p-0">
+            <h2 class="card-title text-muted">Chat</h2>
+            <app-chat></app-chat>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- 
+
+<div class="row">
+  <div class="col-md-12">
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <app-editor (handleSessionEvent)="leftSession($event)"></app-editor>
+          </div>
+        </div>
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <app-drawingpad></app-drawingpad>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-12 mb-2">
+            <div class="card shadow-sm">
+              <div class="card-body">
+                <h2 class="card-title text-muted">Video</h2>
+                <app-live-video></app-live-video>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card shadow-sm">
+              <div class="card-body p-0">
+                <h2 class="card-title text-muted">Chat</h2>
+                <app-chat></app-chat>
+              </div>
+            </div>
+          </div>
+        </div>
+      
+  </div>
+</div> -->
+
+
+
+<!-- 
+<div class="edit px-0 mx-0 edit py-3">
+  <mat-tab-group class=" w-100">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mdb-icon fas icon="code" size="lg"></mdb-icon>
+      </ng-template>
+    
+          <div class="row">
+            <div class="col-md-12 w-100">
+              <app-editor (handleSessionEvent)="leftSession($event)"></app-editor>
+            </div>
+          </div>
+     
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mdb-icon fas icon="pencil-alt" size="lg"></mdb-icon>
+      </ng-template>
+          <div class="row py-3">
+            <div class="col-md-12 w-100">
+              <app-drawingpad></app-drawingpad>
+            </div>
+          </div>
+
+    </mat-tab>
+   
+  </mat-tab-group>
+</div> -->
+
+
+
+
+
+
+<div class="">
+  <div class="row">
+    <div style="width: 4%; border-right:1px solid;">
+      <ul class="nav nav-pills flex-column py-4 text-center position-fixed" id="myTab" role="tablist">
+        <!-- <li class="nav-item itemslist">
+          <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+            aria-selected="false"><mdb-icon fas icon="video"></mdb-icon></a>
+        </li> -->
+        <li class="nav-item itemslist">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">
+            <!-- <mdb-icon fas icon="code" size="lg"></mdb-icon> -->
+            <mdb-icon far icon="user-circle" size="lg"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item itemslist">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">
+            <mdb-icon fas icon="pencil-alt" size="lg"></mdb-icon>
+          </a>
+        </li>
+        <li class="nav-item itemslist">
+          <a class="nav-link" id="chat-tab" href="javascript:void(0)" (click)="frame.show()">
+            <mdb-icon fas icon="comments" size="lg"></mdb-icon>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- /.col-md-4 -->
+    <div style="width: 96%;">
+      <div class="tab-content" id="myTabContent">
+        <!-- <div class="tab-pane fade show active  py-4" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="py-4">
+              <app-live-video></app-live-video>
+            </div>
+        </div> -->
+        <div class="tab-pane fade show active  py-4" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="row" *ngIf="course.courseLevel == 'programming'">
+            <div class="col-md-9 pr-0">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <app-editor (handleSessionEvent)="leftSession($event)"></app-editor>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 px-0">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card shadow-sm">
+                    <div class="card-body">
+                      <!-- <app-live-video></app-live-video> -->
+                      <app-peer-to-peer></app-peer-to-peer>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row" *ngIf="course.courseLevel == 'nonprogramming'">
+            <div class="col-md-12">
+              <div class="card shadow-sm">
+                <div class="card-body">
+                  <div class="text-right">
+                    <button class="btn btn-danger btn-sm" *ngIf="userRole == 3" (click)="leftSession('END_SESSION')">End
+                      Session</button>
+                    <button class="btn btn-danger btn-sm" *ngIf="userRole == 2" (click)="leftSession('EXIT_FROM_SESSION')">Exit
+                      Session</button>
+                  </div>
+                 
+                  <!-- <app-live-video></app-live-video> -->
+                  <app-peer-to-peer></app-peer-to-peer>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="tab-pane fade  py-4" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <app-drawingpad></app-drawingpad>
+        </div>
+
+        <!-- <div class="tab-pane fade  py-4" id="chat" role="chat" aria-labelledby="chat-tab">
+          <app-chat></app-chat>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="example-box" cdkDrag>
+    
+  </div> -->
+
+
+</div>
+
+
+
+<div mdbModal #frame="mdbModal" class="modal fade right modal-scrolling" id="frameModalTop" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+
+  <div class="modal-dialog modal-side modal-bottom-right modal-notify modal-info" role="document">
+    <!--Content-->
+    <div class="modal-content">
+      <!--Header-->
+      <div class="modal-header">
+        <p class="heading">Chat</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true" class="white-text">&times;</span>
+        </button>
+      </div>
+
+      <!--Body-->
+      <div class="modal-body">
+        <app-chat></app-chat>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+
+</div>

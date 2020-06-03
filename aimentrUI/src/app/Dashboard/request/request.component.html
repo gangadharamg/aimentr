@@ -1,0 +1,157 @@
+<div class="container py-5">
+    <div class="row py-4">
+        <div class="col-6">
+            <p class="h4">Active Requests({{Requests.length}})</p>
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+
+    <mat-tab-group dynamicHeight class="pb-3">
+        <mat-tab label="Course Requests">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+
+                    <div class="row pt-5 pb-4 border-bottom" *ngFor="let item of Requests; let i = index">
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="50px"
+                                        class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="h6 py-0 my-0">{{item.studentName}}</p>
+                                    <p class="text-grey py-0">Name</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="h6 py-0 my-0">{{item.startDate | date:'dd/MM/yyyy'}}</p>
+                                    <p class="text-grey py-0">Start Date</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-6">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p class="py-0 my-0"><b>23-3-2020</b></p>
+                                            <p>Start date</p>
+                                        </div>
+                                        <div class="col-md-3 py-1">
+                                            <p class="arrow">&#x2192;
+                                            </p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <p class="my-0"><b>23-4-2020</b></p>
+                                            <p>End date</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p class="my-0"><b>2123+3211</b></p>
+                                            <p class="text-grey">Monthly rent</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="my-0"><b>12322</b></p>
+                                            <p>Deposit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-md-3 text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+
+                                    <button type="button" class="float-right" mdbBtn color="danger" size="sm"
+                                        mdbWavesEffect (click)="RequestRejected(item)">Decline
+                                    </button>
+                                    <button type="button" class="float-right" mdbBtn color="success" size="sm"
+                                        mdbWavesEffect (click)="RequestAccepted(item)">Accept
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                
+            </div>
+        </mat-tab>
+        <mat-tab label="Follow Requests">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+
+                    <div class="row pt-5 pb-4 border-bottom" *ngFor="let item of Requests; let i = index">
+                        <div class="col-9">
+                            <div class="row">
+                                <div class="col-md-3 text-center">
+                                    <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" width="50px"
+                                        class="img-fluid rounded-circle" alt="">
+                                </div>
+                                <div class="col-md-5">
+                                    <p class="h6 py-0 my-0">{{item.studentName}}</p>
+                                    <p class="text-grey py-0">Name</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <p class="h6 py-0 my-0">{{item.startDate | date:'dd/MM/yyyy'}}</p>
+                                    <p class="text-grey py-0">Start Date</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-6">
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p class="py-0 my-0"><b>23-3-2020</b></p>
+                                            <p>Start date</p>
+                                        </div>
+                                        <div class="col-md-3 py-1">
+                                            <p class="arrow">&#x2192;
+                                            </p>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <p class="my-0"><b>23-4-2020</b></p>
+                                            <p>End date</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <p class="my-0"><b>2123+3211</b></p>
+                                            <p class="text-grey">Monthly rent</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="my-0"><b>12322</b></p>
+                                            <p>Deposit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="col-md-3 text-center">
+                            <div class="row justify-content-center">
+                                <div class="col-md-12">
+
+                                    <button type="button" class="float-right" mdbBtn color="danger" size="sm"
+                                        mdbWavesEffect (click)="RequestRejected(item)">Decline
+                                    </button>
+                                    <button type="button" class="float-right" mdbBtn color="success" size="sm"
+                                        mdbWavesEffect (click)="RequestAccepted(item)">Accept
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
+</div>

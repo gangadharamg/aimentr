@@ -1,0 +1,241 @@
+<section class="container-fluid pt-4">
+    <div class="row">
+        <div class="col-md-12 ">
+
+            <div class="row">
+                <div class="col-md-6 px-0 titleblock">
+                    <div class="view cursor-pointer">
+
+                        <div class="row justify-content-end">
+                            <div class="col-md-12 p-5 text-white videoSessionContent">
+                                <div class="videosessionBlock">
+                                    <h3> VIDEO SESSION COURSE</h3>
+                                    <h1 class="Headding1">
+                                        Summary of the Course </h1>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="row cyan justify-content-end AdvanceYourCareer">
+                            <div class="col-md-12 py-4 px-5">
+                                <div class="videosessionBlock">
+                                    <h4 class="mb-0 text-white">Advance your career by learning the basics of
+                                        programming.
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-6 px-0  grey lighten-5">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-md-12 p-5">
+                                <div class="CourseOverviewBlock">
+                                    <h3>
+                                        <span class="CourseOverViewBorder pb-1">
+                                            COURSE OVERVIEW
+                                        </span>
+                                    </h3>
+                                    <h1 class="Headding1">{{ViewCourse.courseName}} </h1>
+                                    <h2>
+                                        <span class="CourseOverViewBorder pb-1">
+                                            Prerequisites
+                                        </span>
+                                    </h2>
+                                    <h4>
+                                        {{ViewCourse.prerequisites}}
+                                    </h4>
+                                    <div class="mt-4 pt-4">
+                                        <button type="button" mdbBtn color="pink" mdbWavesEffect (click)="buyCourse()" *ngIf="Student">
+                                            Buy Course
+                                        </button>
+                                        <button type="button" size="sm" mdbBtn color="pink" mdbWavesEffect (click)="editCourse()" *ngIf="!Student">
+                                            Edit Course
+                                        </button>
+                                        <button type="button" size="sm" mdbBtn color="cyan"  mdbWavesEffect (click)="EnrollStudent()" *ngIf="!Student">
+                                            enrolled student
+                                        </button>
+                                        <button type="button" size="sm" mdbBtn color="success"  mdbWavesEffect (click)="gotocalssroom()" *ngIf="!Student">
+                                            View course
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-12 py-5 my-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 pr-4">
+                                <p class="h2">About this Course</p>
+                                <p class="aboutthisCourseContent">{{ViewCourse.description}}</p>
+                            </div>
+
+                            <div class="col-md-6 px-5">
+                                <div class="row border-bottom pb-4">
+                                    <div class="col-md-4">
+                                        <h4 class="text-uppercase grey-text">COURSE COST</h4>
+                                        <p class="h6">Rs {{ViewCourse.cost}}</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h4 class="text-uppercase grey-text">TIMELINE</h4>
+                                        <p class="h6">{{ViewCourse.duration}} (Days)</p>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h4 class="text-uppercase grey-text">SKILL LEVEL</h4>
+                                        <p class="h6">{{ViewCourse.skillLevel}}</p>
+                                    </div>
+                                </div>
+                                <div class="row py-4">
+                                    <div class="col-md-12">
+                                        <h4 class="text-uppercase grey-text">INCLUDED IN PRODUCT</h4>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <ul class="list-group productIntroduction">
+                                                    <li class="list-group-item border-0">
+                                                        <mdb-icon far icon="play-circle" size="lg"></mdb-icon>
+                                                        Rich Learning Content
+                                                    </li>
+                                                    <li class="list-group-item border-0">
+                                                        <mdb-icon fas icon="mask" size="lg"></mdb-icon>
+                                                        Taught by Industry Pros
+
+                                                    </li>
+                                                    <li class="list-group-item border-0">
+                                                        <mdb-icon far icon="comments" size="lg"></mdb-icon>
+                                                        Student Support Community
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <ul class="list-group productIntroduction">
+                                                    <li class="list-group-item border-0">
+                                                        <mdb-icon far icon="list-alt" size="lg"></mdb-icon>
+                                                        Interactive Quizzes
+                                                    </li>
+                                                    <li class="list-group-item border-0">
+                                                        <mdb-icon far icon="clock" size="lg"></mdb-icon>
+                                                        Self-Paced Learning
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="row  grey lighten-5">
+                <div class="col-md-12 py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 mb-5">
+                                <h1 class="text-center Headding1">What You Will Learn</h1>
+                            </div>
+
+
+                            <div class="col-md-4 mb-5 " *ngFor="let item of AllTopics ; let i = index">
+                                <!-- <mdb-card class="learnContentCards cursor-pointer" data-toggle="modal"
+                                    (click)="CourseOverview.show(); GetSubTopicsList(item)">
+                                    <mdb-card-body class="courseCardsBody">
+                                        <mdb-card-title>
+                                            <h4>Topic {{i+1}}</h4>
+                                            <h2>{{item.topicName}}</h2>
+                                        </mdb-card-title>
+                                        <mdb-card-text>
+                                        </mdb-card-text>
+                                    </mdb-card-body>
+                                </mdb-card> -->
+                                <mdb-card class="pb-0 learnContentCards">
+                                    <mdb-card-body class="px-0 pb-0">
+                                        <div class="mx-4">
+                                            <mdb-card-title>
+                                                <h4>Topic {{i+1}}</h4>
+                                                <h2>{{item.topicName}}</h2>
+                                            </mdb-card-title>
+                                        </div>
+            
+                                        <footer class="page-footer rounded-bottom font-small cyan py-2 cursor-pointer"
+                                            (click)="CourseOverview.show(); GetSubTopicsList(item)">
+                                            <p class="text-center mb-0"> Subtopics</p>
+                                        </footer>
+                                    </mdb-card-body>
+                                </mdb-card>
+
+                            </div>
+                           
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+
+<!-- 
+<button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()"
+  mdbWavesEffect>Launch Modal</button> -->
+
+<div mdbModal #CourseOverview="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-notify modal-info" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header modal-cyan-header">
+                <p class="heading lead">{{SelectedTopicName}}</p>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="CourseOverview.hide()">
+                    <span aria-hidden="true" class="white-text">&times;</span>
+                </button>
+            </div>
+
+            <!--Body-->
+            <div class="modal-body">
+                <mat-list>
+                    <mat-list-item *ngFor="let item of AllSubtopics">
+                      <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+                      <mat-icon mat-list-icon>adjust</mat-icon>
+                      <div mat-line>{{item.subTopicName}}</div>
+                    </mat-list-item>
+                   
+                  </mat-list>
+            </div>
+
+            <!--Footer-->
+            <!-- <div class="modal-footer justify-content-center">
+                <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Get it now
+                    <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+                </a>
+                <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                    (click)="CourseOverview.hide()">No, thanks</a>
+            </div> -->
+        </div>
+        <!--/.Content-->
+    </div>
+</div>

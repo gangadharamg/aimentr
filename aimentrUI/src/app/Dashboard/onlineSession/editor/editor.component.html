@@ -1,0 +1,88 @@
+<!-- <h1>Editor In Progress</h1> -->
+<!-- <div class="d-flex justify-content-between align-items-center mb-2">
+  <h2>Code Editor</h2>
+  <div class="d-flex ">
+    <div class="form-group mb-0 mr-2">
+      <label for="language">Select Language</label>
+      <select class="form-control-sm" name="language" [(ngModel)]="currentLanguage"
+        (change)="changeLanguage(currentLanguage)">
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+      </select>
+    </div>
+    <button class="btn btn-success btn-sm" (click)="runcode()">Run Code</button>
+
+    <button class="btn btn-danger btn-sm" *ngIf="userRole == 2" (click)="emitSessionEvent('END_SESSION')">End
+      Session</button>
+    <button class="btn btn-danger btn-sm" *ngIf="userRole == 3" (click)="emitSessionEvent('EXIT_FROM_SESSION')">Exit
+      Session</button>
+  </div>
+</div>
+<div class="d-flex border">
+  <div id="userlist" style="position: relative;"></div>
+  <div id="firepad" style="flex: 1"></div>
+</div>
+
+<div class="card shadow-sm mt-4">
+
+  <div class="card-body bg-dark">
+    <h4 class="card-title text-white">Output</h4>
+    <ng-container *ngIf="output?.exitCode == 0">
+      <p class="alert alert-success" *ngIf="showAlert">Compiled Successfully</p>
+    </ng-container>
+    <ng-container *ngIf="output?.exitCode != 0">
+      <p class="alert alert-danger" *ngIf="showAlert">Compiled with errors</p>
+    </ng-container>
+    <pre [innerHTML]="output?.stdout" class="text-white"></pre>
+    <pre [innerHTML]="output?.stderr" class="text-danger"></pre>
+  </div>
+</div> -->
+
+
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <h2>Code Editor</h2>
+  <div class="d-flex ">
+    <!-- <div class="form-group mb-0 mr-2">
+      <label for="language">Select Language</label>
+      <select class="form-control-sm" name="language" [(ngModel)]="currentLanguage"
+        (change)="changeLanguage(currentLanguage)">
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+      </select>
+    </div> -->
+    <mat-form-field>
+      <mat-label>Select Language</mat-label>
+      <select matNativeControl required name="currentLanguage" [(ngModel)]="currentLanguage"
+        (change)="changeLanguage(currentLanguage)">
+        <option value="javascript">Javascript</option>
+        <option value="python">Python</option>
+      </select>
+    </mat-form-field>
+
+    <button class="btn btn-success btn-sm" (click)="runcode()">Run Code</button>
+
+    <button class="btn btn-danger btn-sm" *ngIf="userRole == 3" (click)="emitSessionEvent('END_SESSION')">End
+      Session</button>
+    <button class="btn btn-danger btn-sm" *ngIf="userRole == 2" (click)="emitSessionEvent('EXIT_FROM_SESSION')">Exit
+      Session</button>
+  </div>
+</div>
+<div class="d-flex border">
+  <div id="userlist" style="position: relative;"></div>
+  <div id="firepad" style="flex: 1"></div>
+</div>
+
+<div class="card shadow-sm mt-4">
+
+  <div class="card-body bg-dark">
+    <h4 class="card-title text-white">Output</h4>
+    <ng-container *ngIf="output?.exitCode == 0">
+      <p class="alert alert-success" *ngIf="showAlert">Compiled Successfully</p>
+    </ng-container>
+    <ng-container *ngIf="output?.exitCode != 0">
+      <p class="alert alert-danger" *ngIf="showAlert">Compiled with errors</p>
+    </ng-container>
+    <pre [innerHTML]="output?.stdout" class="text-white"></pre>
+    <pre [innerHTML]="output?.stderr" class="text-danger"></pre>
+  </div>
+</div>

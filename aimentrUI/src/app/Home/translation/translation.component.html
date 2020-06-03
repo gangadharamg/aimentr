@@ -1,0 +1,6 @@
+<div class="form__group">
+    <label for="" class="form__label">Upload Resume</label>
+    <input type="file" #file class="form__input validate-empty " name="resume"
+        id="resume" placeholder="Choose a file"
+        (change)="fileChangeEvent($event)" required />
+</div>

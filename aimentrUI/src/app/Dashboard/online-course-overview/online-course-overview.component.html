@@ -1,0 +1,348 @@
+<div class="live">
+    <div class="cyan darken-1 py-5">
+        <div class="container py-5">
+            <p class="h2 text-white pb-4 text-center text-uppercase w-75 mx-auto CourseHeading">
+                {{ViewCourse.courseName}}</p>
+            <br>
+            <p class="text-center text-white descript h6 line-height w-50 mx-auto">{{ViewCourse.description}}
+                We know you’re busy. Our courses are completely online, so you decide when and where to study. We
+                provide you with a roadmap and soft deadlines to keep you focused and motivated—all you need is a
+                computer and internet access. A
+            </p>
+            <!-- <p class="text-center text-white py-3 h5">
+                <mdb-icon fas icon="play" class="mx-1"></mdb-icon> Learn more
+            </p> -->
+            <div class="row py-5">
+                <div class="col-md-12 text-center">
+                    <button type="button" mdbBtn color="white" outline="true" mdbWavesEffect (click)="buyCourse()"
+                        *ngIf="Student">
+                        Buy Course
+                    </button>
+                    <button type="button" mdbBtn color="white" outline="true" mdbWavesEffect (click)="editCourse()"
+                        *ngIf="!Student">
+                        Edit Course
+                    </button>
+                    <!-- <button type="button" mdbBtn color="white" outline="true" mdbWavesEffect (click)="EnrollStudent()"
+                        *ngIf="!Student">
+                        enrolled student
+                    </button> -->
+                    <button type="button" mdbBtn color="white" outline="true" mdbWavesEffect *ngIf="!Student"
+                        (click)="startSession.show(); ">
+                        Start Session
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" indigo lighten-5">
+        <div class="container  py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-12 mb-5">
+                    <p class="text-center h2">What You Will Learn</p>
+                </div>
+
+                <div class="col-md-5 py-4">
+                    <mdb-card class="pb-0  my-4 learnContentCards" *ngFor="let item of AllTopics ; let i = index">
+                        <mdb-card-body class="px-0 pb-0">
+                            <div class="mx-4">
+                                <mdb-card-title>
+                                    <h4>Topic {{i+1}}</h4>
+                                    <h2>{{item.topicName}}</h2>
+                                </mdb-card-title>
+                            </div>
+
+                            <footer class="page-footer rounded-bottom font-small cyan py-2 cursor-pointer"
+                                (click)="CourseOverview.show(); GetSubTopicsList(item)">
+                                <p class="text-center mb-0"> Subtopics</p>
+                            </footer>
+                        </mdb-card-body>
+                    </mdb-card>
+
+                </div>
+                <div class="col-md-5">
+                    <mat-tab-group>
+                        <mat-tab label="About this Course">
+                            <mdb-card class="pt-3">
+                                <mdb-card-body>
+                                    <p class="h6 ">
+                                        Structured to fit into your life</p>
+                                    <P>We know you’re busy. Our courses are completely online,
+                                        so you decide when and where to study. We provide you with a roadmap and soft
+                                        deadlines to
+                                        keep you focused and motivated—all you need is a computer and internet access.
+                                        And don’t
+                                        worry,
+                                        if life ever gets in the way, you can pause or cancel at any time.</P>
+                                    <p class="line-height2"> ✔ Learn from anywhere<br>
+                                        ✔ No hard deadlines or due dates <br>
+                                        ✔ Pause or cancel anytime</p>
+
+
+                                </mdb-card-body>
+                            </mdb-card>
+                            <!-- <div class="clo-md-12 py-3">
+                                <button mdbBtn type="button" color="primary" block="true" mdbWavesEffect>Start learning
+
+                                </button>
+                            </div> -->
+                        </mat-tab>
+                        <mat-tab label="Enrolled Students">
+                            <mdb-card>
+                                <mdb-card-body>
+                                    <div class="row  py-3 border my-2 mx-2" *ngFor="let item of AllEnrolledStudents">
+                                        <div class="col-md-3 text-center">
+                                            <img src="./assets/images/icons/user.png" alt="user" width="50px">
+                                        </div>
+                                        <div class="col-md-9">
+                                            <p class="h6 mb-0"> <b class="text-uppercase"> {{item.firstname}}
+                                                    {{item.lastname}} </b>
+                                            </p>
+                                            <h5>{{item.email}}</h5>
+                                        </div>
+                                    </div>
+
+                                </mdb-card-body>
+
+                                <!-- <mdb-card-body *ngIf="AllEnrolledStudents.length == 0">
+                                    <div class="row  py-3 border my-2 mx-2">
+                                        <div class="col-md-12">
+                                           
+                                        </div>
+                                    </div>
+                                </mdb-card-body> -->
+                            </mdb-card>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div mdbModal #CourseOverview="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-notify modal-info" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header modal-cyan-header">
+                    <p class="heading lead">{{SelectedTopicName}}</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        (click)="CourseOverview.hide()">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <mat-list>
+                        <mat-list-item *ngFor="let item of AllSubtopics">
+                            <!-- <mat-icon mat-list-icon>folder</mat-icon> -->
+                            <mat-icon mat-list-icon>adjust</mat-icon>
+                            <div mat-line>{{item.subTopicName}}</div>
+                        </mat-list-item>
+
+                    </mat-list>
+                </div>
+
+                <!--Footer-->
+                <!-- <div class="modal-footer justify-content-center">
+            <a type="button" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Get it now
+                <mdb-icon far icon="gem" class="ml-1"></mdb-icon>
+            </a>
+            <a type="button" mdbBtn color="primary" outline="true" class="waves-effect" mdbWavesEffect
+                (click)="CourseOverview.hide()">No, thanks</a>
+        </div> -->
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div mdbModal #startSession="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+        aria-labelledby="myBasicModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dailog-center" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="startSession.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <h3 class="modal-title w-100" id="myModalLabel">videos</h3>
+                </div>
+                <div class="modal-body pb-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <!-- <div class="col-md-6">
+                        <h1><b>Live Session</b></h1>
+                        
+                    </div> -->
+                                <div class="col-md-12 py-4">
+                                    <select class="browser-default custom-select" name="bachname"
+                                        [(ngModel)]="bachname">
+                                        <option selected value="">SELECT BATCH</option>
+                                        <option *ngFor="let item of ViewCourse.baches" [value]="item.bachname">
+                                            {{item.bachname}}
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <mdb-card class="">
+                                        <mdb-card-body class="px-5">
+                                            <mdb-card-title>
+                                                <h2 class="py-3 border-bottom">{{ViewCourse.courseName}}</h2>
+                                            </mdb-card-title>
+                                            <mdb-card-text>
+                                                <div class="col-md-12">
+                                                    <div class="row py-3 mb-3 border-bottom">
+                                                        <div class="col-7 px-2 ">
+                                                            <h3 class="py-0"><b>{{AllTopics[0]?.topicName}}</b></h3>
+                                                            <P>Topics</P>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <div class="btn-group rounded  float-right" role="group"
+                                                                aria-label="Basic example">
+                                                                <button mdbBtn type="button" color="primary" size="sm"
+                                                                    class="waves-light" mdbWavesEffect [disabled]="bachname == ''"
+                                                                    (click)="SessionStart()">
+                                                                    <mdb-icon fas icon="play"></mdb-icon> Join
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row " *ngFor="let item of AllTopics; let i=index" [hidden]="i >= 2" >
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-11">
+                                                            <h4 class=" py-0"><b>{{item.topicName}}</b></h4>
+
+                                                        </div> 
+                                                    </div>
+
+                                                    <!-- <div class="row ">
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-11">
+                                                            <h4 class=" py-0"><b>Ng containers</b></h4>
+
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row ">
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-11">
+                                                            <h4 class=" py-0"><b>Imports and Exports</b></h4>
+
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                            </mdb-card-text>
+
+                                        </mdb-card-body>
+                                    </mdb-card>
+                                    <!-- <mdb-card class=" px-0" data-toggle="modal">
+                                        <mdb-card-body class="courseCardsBody py-0 px-0">
+                                            <mdb-card-title>
+                                                <h2 class="pt-2 px-3 pb-0">Ongoing Lecture</h2>
+                                                <hr>
+                                            </mdb-card-title>
+                                            <mdb-card-text>
+                                                <div class="col-12">
+                                                    <div class="row py-2">
+                                                        <div class="col-7 px-2 ">
+                                                            <h3 class="py-0"><b>Force and momentum Revision</b></h3>
+                                                            <P>Physics</P>
+                                                        </div>
+                                                        <div class="col-5">
+                                                            <div class="btn-group rounded  float-right" role="group"
+                                                                aria-label="Basic example">
+                                                                <button mdbBtn type="button" color="primary" size="sm"
+                                                                    class="waves-light " mdbWavesEffect>
+                                                                    <mdb-icon fas icon="play"></mdb-icon>
+                                                                </button>
+                                                                <button mdbBtn type="button" color="primary" size="sm"
+                                                                    class="waves-light" mdbWavesEffect>Start</button>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 ">
+                                                            <hr>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <h4 class=" py-0"><b>Force and Unit</b></h4>
+
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <p class="h6 py-1">3:40 min</p>
+                                                        </div>
+                                                        <div class="col-2 py-0">
+                                                            <button type="button" mdbBtn color="light"
+                                                                class="px-2 py-0 " size="sm"
+                                                                mdbWavesEffect>Medium</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <h4 class=" py-0"><b>Force and Unit</b></h4>
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <p class="h6 py-1">3:40 min</p>
+                                                        </div>
+                                                        <div class="col-2 py-0">
+                                                            <button type="button" mdbBtn color="light" class="px-3 py-0 " size="sm"
+                                                                mdbWavesEffect>Hard</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-1 py-1"><i class="far fa-check-circle"></i>
+                                                        </div>
+                                                        <div class="col-4">
+                                                            <h4 class=" py-0"><b>Force and Unit</b></h4>
+
+                                                        </div>
+                                                        <div class="col-3">
+                                                            <p class="h6 py-1">3:40 min</p>
+                                                        </div>
+                                                        <div class="col-2 py-0">
+                                                            <button type="button" mdbBtn color="light" class="px-2 py-0 " size="sm"
+                                                                mdbWavesEffect>Medium</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mdb-card-text>
+                                        </mdb-card-body>
+                                    </mdb-card> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+<!-- <a [href]="demoVideoUrl" class="d-none"  #firstvideoclick id="firstvideoclick" (click)="openFirstVideo()">hello</a> -->

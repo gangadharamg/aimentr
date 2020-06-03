@@ -1,0 +1,442 @@
+<section class="py-5">
+    <div class="container-fluid mx-auto DetailsPage">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <mdb-card class="col-md-12 my-4">
+                        <mdb-card-body>
+                            <div class="row py-3">
+                                <div class="col-md-7">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="./assets/professional.png"
+                                                class="profile img-fluid rounded-circle" alt="user" width="150px"
+                                                height="150px">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="row ">
+                                                <p class="h3 pb-0 text-uppercase"> <b>{{MentorDetails.firstname}}
+                                                        {{MentorDetails.lastname}}</b></p>
+                                            </div>
+                                            <h3 class="mb-0">{{MentorDetails.personal.about}}</h3>
+                                            <div>
+
+                                                <button type="button" mdbBtn size="sm" color="primary"
+                                                    [hidden]="YourFollowing" class="rounded ml-0" outline="true"
+                                                    mdbWavesEffect (click)="AddFollowing()">Follow</button>
+
+                                                <button type="button" mdbBtn size="sm" color="primary"
+                                                    [hidden]="!YourFollowing" class="rounded ml-0" outline="true"
+                                                    mdbWavesEffect (click)="unFollow()">Following</button>
+
+                                                <!-- <button type="button" mdbBtn size="sm" color="success" class="rounded"
+                                                    outline="true" mdbWavesEffect>message</button>
+                                                <button type="button" mdbBtn size="sm" color="cyan" class="rounded"
+                                                    outline="true" mdbWavesEffect (click)="viewProfile()">View Profile</button> -->
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-1" class="border-right d-xs-none"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="h6">Availability<span class="pull-right"> :</span></p>
+                                        </div>
+                                        <div class="col-7">
+                                            <span class="badge badge-pill badge-success">Active</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="h6">Location <span class="pull-right"> :</span></p>
+                                        </div>
+                                        <div class="col-7">
+                                            <p> {{MentorDetails.personal.location}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="h6">Years of experience <span class="pull-right"> :</span> </p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p>{{MentorDetails.work.yearsOfExperience}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <p class="h6">Languages <span class="pull-right"> :</span> </p>
+                                        </div>
+                                        <div class="col-7">
+                                            <p>
+                                                <mat-chip-list aria-label="Fish selection">
+                                                    <mat-chip *ngFor="let item of MentorDetails.mentor.languagesTeach">
+                                                        {{item.language}}</mat-chip>
+                                                </mat-chip-list>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row py-3">
+                                        <div class="col-2">
+                                            <a href="Javascript:Void(0)">
+                                                <mdb-icon fab icon="github fa-2x" class="blue-text"></mdb-icon>
+                                            </a>
+                                        </div>
+
+                                        <div class="col-2">
+                                            <a href="Javascript:Void(0)">
+                                                <mdb-icon fab icon="linkedin-in fa-2x" class="blue-text"></mdb-icon>
+                                            </a>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="Javascript:Void(0)">
+                                                <mdb-icon fas icon="globe fa-2x" class="blue-text"></mdb-icon>
+                                            </a>
+                                        </div>
+                                        <div class="col-2">
+                                            <a href="Javascript:Void(0)">
+                                                <mdb-icon fab icon="stack-overflow fa-2x" class="blue-text">
+                                                </mdb-icon>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mdb-card-body>
+                    </mdb-card>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+            <div class="col-md-12">
+                <div class="row my-3">
+                    <div class="col-md-12 mb-3">
+                        <div class="row">
+                            <div class="col text-right">
+                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                    <button mdbBtn type="button" color="cyan" size="sm" class="waves-light"
+                                        mdbWavesEffect [ngClass]="{'btn-outline-cyan': !ShowPublishedCourses}"
+                                        (click)="OpenPublishedCourses()">Published Courses </button>
+                                    <button mdbBtn type="button" color="cyan" size="sm" class="waves-light"
+                                        mdbWavesEffect [ngClass]="{'btn-outline-cyan': ShowPublishedCourses}"
+                                        (click)="OpenUpcommingCourses()">Upcomming Courses</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <div class="row" *ngIf="ShowPublishedCourses">
+                            <div class="col-md-4 my-3" *ngFor="let item of listAvailableCourses">
+                                <mdb-card class="CourseCards">
+                                    <mdb-card-body class="CourseCardBody">
+                                        <h2 class="text-uppercase pl-0">{{item.courseName}}</h2>
+
+                                        <mdb-card-text>
+                                            <div class="row text-uppercase my-4">
+                                                <div class="col-md-5">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon far icon="window-restore" size="2x"></mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-2">
+                                                            <small class="grey-text"> Course Type </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.courseType}}
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon fas icon="sort-amount-up-alt" size="2x">
+                                                            </mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-2">
+                                                            <small class="grey-text"> Level </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.skillLevel}}
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon fas icon="hand-holding-usd" size="2x"></mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-3 pr-0">
+                                                            <small class="grey-text"> Cost </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.cost}}</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row text-uppercase">
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-12  px-0">
+                                                            <small class="grey-text"> duration </small>
+                                                        </div>
+                                                        <div class="col-6 px-0 ">
+                                                            <p class="h1">{{item.duration}}</p>
+                                                        </div>
+                                                        <div class="col-6 px-0 pt-1">
+                                                            <mdb-icon far icon="calendar" class="amber-text"></mdb-icon>
+                                                            <h6>days</h6>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <!-- warn -->
+                                                            <mat-progress-bar mode="determinate" color="primary"
+                                                                value="{{item.CompletedDuration}}"></mat-progress-bar>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="grey-text ">
+                                                                {{item.startDate | date : 'MMM d, y'}}
+                                                            </small>
+                                                        </div>
+                                                        <div class="col-6 text-right">
+                                                            <small class="grey-text">
+                                                                {{item.endDate | date : 'MMM d, y'}}
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4 justify-content-end">
+                                                <!-- <div class="col-6">
+                                                    <button mdbBtn type="button" block="true" color="info"
+                                                        outline="true" size="sm" class="px-1" mdbWavesEffect
+                                                         (click)="gotocalssroom(item)">go to
+                                                        classroom</button>
+                                                </div> -->
+                                                <div class="col-6 ">
+                                                    <button mdbBtn type="button" block="true" color="info"
+                                                        outline="true" size="sm" class="px-1" mdbWavesEffect
+                                                        (click)="CourseOverView(item)" >course
+                                                        materials</button>
+                                                </div>
+                                            </div>
+                                        </mdb-card-text>
+                                    </mdb-card-body>
+                                </mdb-card>
+
+                            </div>
+                        </div>
+                        <div class="row" *ngIf="!ShowPublishedCourses">
+                            <div class="col-md-4 my-3" *ngFor="let item of listUpcommingCourses">
+                                <mdb-card class="CourseCards">
+                                    <mdb-card-body class="CourseCardBody">
+                                        <h2 class="text-uppercase pl-0">{{item.courseName}}</h2>
+
+                                        <mdb-card-text>
+                                            <div class="row text-uppercase my-4">
+                                                <div class="col-md-5">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon far icon="window-restore" size="2x"></mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-2">
+                                                            <small class="grey-text"> Course Type </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.courseType}}
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon fas icon="sort-amount-up-alt" size="2x">
+                                                            </mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-2">
+                                                            <small class="grey-text"> Level </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.skillLevel}}
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="row">
+                                                        <div class="col-3 text-center pt-2 p-0">
+                                                            <mdb-icon fas icon="hand-holding-usd" size="2x"></mdb-icon>
+                                                        </div>
+                                                        <div class="col-9 pl-3 pr-0">
+                                                            <small class="grey-text"> Cost </small>
+                                                            <h5 class="cyan-text font-weight-bold">{{item.cost}}</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row text-uppercase">
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-12  px-0">
+                                                            <small class="grey-text"> duration </small>
+                                                        </div>
+                                                        <div class="col-6 px-0 ">
+                                                            <p class="h1">{{item.duration}}</p>
+                                                        </div>
+                                                        <div class="col-6 px-0 pt-1">
+                                                            <mdb-icon far icon="calendar" class="amber-text"></mdb-icon>
+                                                            <h6>days</h6>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <!-- warn -->
+                                                            <mat-progress-bar mode="determinate" color="primary"
+                                                                value="{{item.CompletedDuration}}"></mat-progress-bar>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <small class="grey-text ">
+                                                                {{item.startDate | date : 'MMM d, y'}}
+                                                            </small>
+                                                        </div>
+                                                        <div class="col-6 text-right">
+                                                            <small class="grey-text">
+                                                                {{item.endDate | date : 'MMM d, y'}}
+                                                            </small>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-4">
+                                                <!-- <div class="col-6">
+                                                    <button mdbBtn type="button" block="true" color="info"
+                                                        outline="true" size="sm" class="px-1" mdbWavesEffect disabled>go
+                                                        to
+                                                        classroom</button>
+                                                </div> -->
+                                                 <div class="col-6 "> 
+                                                    <button mdbBtn type="button" block="true" color="info"
+                                                        outline="true" size="sm" class="px-1" mdbWavesEffect
+                                                        disabled>course
+                                                        materials</button>
+                                                </div>
+                                            </div>
+                                        </mdb-card-text>
+                                    </mdb-card-body>
+                                </mdb-card>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="col-md-4 my-3" *ngFor="let item of AvailableCourses">
+                        <mdb-card class="CourseCards">
+                            <mdb-card-body class="CourseCardBody">
+                                <h2 class="text-uppercase pl-0">{{item.courseName}}</h2>
+                                <mdb-card-text>
+                                    <div class="row text-uppercase my-4">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class="col-3 text-center pt-2 p-0">
+                                                    <mdb-icon far icon="window-restore" size="2x"></mdb-icon>
+                                                </div>
+                                                <div class="col-9 pl-2">
+                                                    <small class="grey-text"> Course Type </small>
+                                                    <h5 class="cyan-text font-weight-bold">{{item.courseType}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-3 text-center pt-2 p-0">
+                                                    <mdb-icon fas icon="sort-amount-up-alt" size="2x"></mdb-icon>
+                                                </div>
+                                                <div class="col-9 pl-2">
+                                                    <small class="grey-text"> Level </small>
+                                                    <h5 class="cyan-text font-weight-bold">{{item.skillLevel}} </h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <div class="col-3 text-center pt-2 p-0">
+                                                    <mdb-icon fas icon="hand-holding-usd" size="2x"></mdb-icon>
+                                                </div>
+                                                <div class="col-9 pl-3 pr-0">
+                                                    <small class="grey-text"> Cost </small>
+                                                    <h5 class="cyan-text font-weight-bold">{{item.cost}}</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row text-uppercase">
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-12  px-0">
+                                                    <small class="grey-text"> duration </small>
+                                                </div>
+                                                <div class="col-6 px-0 ">
+                                                    <p class="h1">{{item.duration}}</p>
+                                                </div>
+                                                <div class="col-6 px-0 pt-1">
+                                                    <mdb-icon far icon="calendar" class="amber-text"></mdb-icon>
+                                                    <h6>days</h6>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 mt-4">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <mat-progress-bar mode="determinate" color="primary"
+                                                        value="{{item.CompletedDuration}}"></mat-progress-bar>
+                                                </div>
+                                                <div class="col-6">
+                                                    <small class="grey-text "> {{item.startDate | date : 'MMM d, y'}}
+                                                    </small>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <small class="grey-text"> {{item.endDate | date : 'MMM d, y'}}
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 justify-content-end">
+
+                                        <div class="col-7">
+                                            <button mdbBtn type="button" block="true" color="info" outline="true"
+                                                size="sm" mdbWavesEffect (click)="CourseOverView(item)">course
+                                                materials</button>
+                                        </div>
+                                    </div>
+                                </mdb-card-text>
+                            </mdb-card-body>
+                        </mdb-card>
+
+                    </div> -->
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</section>

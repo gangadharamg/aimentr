@@ -1,0 +1,85 @@
+.introstep {
+    // height: 300px !important;
+}
+
+.Headding1 {
+    font-size: 42px;
+    line-height: 1.5;
+}
+
+.titleblock {
+    background-image: linear-gradient(180deg, rgba(0, 188, 212, 0.7), rgba(0, 188, 212, 0.7)),
+        Url("./assets/images/home/titleimg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.videosessionBlock {
+    width: 515px;
+    float: right;
+}
+.CourseOverviewBlock {
+    width: 515px;
+    margin-left: 4rem;
+}
+.CourseOverViewBorder {
+    border-bottom: 2px solid #ec407a;
+}
+.videoSessionContent {
+    margin-top: 4rem;
+}
+
+.aboutthisCourseContent {
+    line-height: 2;
+    font-size: 16px;
+}
+.AdvanceYourCareer {
+    margin-top: 129px;
+}
+
+.productIntroduction {
+    li {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    mdb-icon {
+        margin-right: 4px;
+        color: #ce2424;
+    }
+}
+
+.learnContentCards {
+    min-height: 100px;
+    transition: 0.2s linear;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    // border-bottom: 2px solid #ec407a;
+}
+.learnContentCards:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.18);
+    -webkit-transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -4px, 0);
+}
+
+.courseCardsBody{
+    padding: 2rem 3rem;
+}
+
+.modal-cyan-header{
+    background-color: #157179 !important;
+}
+
+
+@media screen and (max-width: 1025px) {
+    .videosessionBlock {
+        width: auto;
+        float: right;
+    }
+    .CourseOverviewBlock {
+        width: auto;
+        margin-left: 0rem;
+    }
+ 
+    // .AdvanceYourCareer {
+    //     margin-top: 129px;
+    // }
+}

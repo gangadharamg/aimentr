@@ -1,0 +1,43 @@
+<div class="text-center">
+    <span *ngIf="course.courseLevel == 'programming'">
+        <!-- <iframe src="" name="VideoFrame" style="border:none;"></iframe> -->
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="" name="VideoFrame"></iframe>
+          </div>
+    </span>
+    <span *ngIf="course.courseLevel == 'nonprogramming'">
+        <!-- <iframe src="" name="VideoFrame" style="border:none;"></iframe> -->
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="" name="VideoFrame"></iframe>
+          </div>
+    </span>
+
+  
+    <div class="row">
+        <div class="col-md-12 pt-3">
+            <mat-form-field>
+                <mat-label>Select Languages</mat-label>
+                <select matNativeControl required name="language" [(ngModel)]="selectedLanguage">
+                    <option value="{{opt.language}}" *ngFor="let opt of languages;">{{opt.name}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <button mdbBtn type="button" color="pink" *ngIf="role == 'admin'" (click)="mute()"
+                [disabled]="!speechRecongitionStatus" size="sm" mdbWavesEffect>Mute</button>
+            <button mdbBtn type="button" color="cyan" *ngIf="role == 'admin'" (click)="talk()" size="sm" mdbWavesEffect
+                [disabled]="speechRecongitionStatus">Talk</button>
+        </div>
+        <div class="col-md-12">
+            <h2 class="mt-3">{{subtitles}}</h2>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<!-- target="VideoFrame" -->
+<a [href]="demoVideoUrl" class="d-none" target="VideoFrame" #firstvideoclick id="firstvideoclick" (click)="openFirstVideo()">hello</a>

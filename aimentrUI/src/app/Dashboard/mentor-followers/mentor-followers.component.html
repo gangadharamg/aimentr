@@ -1,0 +1,37 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mdb-card>
+                    <mdb-card-body>
+                        <div class="row  py-3 border my-2 mx-2" >
+                            <div class="col-md-12">
+                                <p class="h4 text-center mb-0">FOLLOWERS</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6" *ngFor="let item of Followers">
+                                <div class="row  py-3 border my-2 mx-2" >
+                                    <div class="col-md-3 text-center">
+                                        <img src="./assets/images/icons/user.png" alt="user" width="50px">
+                                    </div>
+                                    <div class="col-md-9">
+                                        <p class="h6 mb-0"> <b class="text-uppercase"> {{item.studentName}}</b>
+                                        </p>
+                                        <h5>{{item.studentEmail}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 py-3" *ngIf="Followers.length == 0">
+                                <p class="mb-0 h4 text-center">No Followers yet</p>
+                            </div>
+                        </div>
+                        
+
+                    </mdb-card-body>
+                </mdb-card>
+               
+            </div>
+        </div>
+    </div>
+</section>

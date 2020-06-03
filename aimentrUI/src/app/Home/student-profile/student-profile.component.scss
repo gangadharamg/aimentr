@@ -1,0 +1,21 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+    // margin-top: 26px;
+  }
+  
+  .matFieldsAlign {
+    margin-top: 26px;
+  }
+  
+  .StudentStepper {
+    .mat-horizontal-stepper-header-container {
+      white-space: nowrap;
+      display: flex;
+      width: 40% !important;
+      align-items: center;
+    }
+  }

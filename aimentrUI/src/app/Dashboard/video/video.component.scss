@@ -1,0 +1,258 @@
+// .container-fluid {
+//  padding-top: 10px;
+//  padding: 0;
+//  //background-color: #0a0a0a;
+//  color:black;
+
+// }
+
+// ::ng-deep .a {
+//  line-height: 16px;
+//  display: block;
+//  padding: 12px 18px;
+//  font-weight: 100;
+// }
+
+// .mat-expansion-panel-header-title,
+// .mat-expansion-panel-header-description {
+//  display: flex;
+//  flex-grow: 1;
+//  margin-right: 16px;
+//  //color: #FAFAFA;
+
+//  color:black;
+//  font-weight: 300;;
+//  //background-color: #212121;
+// }
+
+// .mat-expansion-panel-header {
+//  max-width: 100%;
+//  font-size: 14px;
+//  font-weight: 100;
+//  line-height: 18px;
+//  border:1px solid black
+// // background-color: #212121
+// }
+
+//  .mat-expansion-panel {
+//  //padding: 5px;
+//  margin-top: 5px;
+
+// }
+
+// ::ng-deep .mat-expansion-panel-body {
+//  padding: 10px 14px 16px 10px !important;
+
+// }
+
+// hr {
+//  border: 0.5px solid grey
+// }
+
+// .embed-container {
+//  position: relative;
+//  padding-bottom: 56.25%;
+//  height: 0;
+//  overflow: hidden;
+//  max-width: 100%;
+// }
+
+// .list-line {
+//  margin-top: 0px !important;
+//  margin-bottom: 0px !important;
+//  border: 0;
+//  border-top: 2px solid rgba(16, 16, 16, 0.24);
+//  margin-left: 46px;
+// }
+
+// .list-header-list {
+//  font-size: .8rem;
+//  padding-left: 25px !important;
+
+// }
+
+// ul {
+//  background-color: rgb(64, 79, 84);
+// }
+
+// .list-data {
+
+//  display: block;
+//  padding: .75rem 1.25rem;
+//  background-color: rgb(64, 79, 84);
+//  color: rgb(158, 170, 170);
+// }
+
+// .video-content {
+//  height: 577px !important;
+//  overflow-y: scroll;
+// }
+
+// .list-head {
+//  font-size: 1.5rem;
+//  font-weight: 300;
+//  background-color: rgb(56, 69, 75);
+//  padding: 20px !important;
+//  color: #ffffff9e;
+
+// }
+
+// h1 {
+//  margin-bottom: 0;
+//  padding-bottom: 10px;
+//  color:black;
+//  font-weight: 500;
+// }
+
+// .accordion-time {
+//  float: right;
+// }
+
+// .accordion-content__row__title {
+//  max-width: 60%;
+//  float: left;
+//  padding-left: 4px;
+// }
+
+// .example-item {
+//  height: 25px;
+
+// }
+// .toggle{
+//  display: none;
+// }
+// .example-viewport {
+//  height: 340px;
+//  width: 300px;
+//  padding: 0;
+// }
+
+// iframe {
+//  width: 100%;
+//  height: 550px;
+// }
+
+// @media only screen and (max-width: 1100px) {
+//  .example-viewport {
+//    height: 300px;
+//    width: 250px;
+//  }
+
+//  iframe {
+//    width: 100%;
+//    height: 410px;
+//  }
+// }
+
+// @media only screen and (max-width: 900px) {
+//  .example-viewport {
+//    height: 400px;
+//    width: 250px;
+//  }
+
+//  iframe {
+//    width: 100%;
+//    height: 310px;
+//  }
+// }
+
+// @media only screen and (max-width:768px) {
+//  .example-viewport {
+//    height: 380px;
+//    width: 250px;
+//  }
+//  .example-container {
+//    width: auto;
+//    height: 180px;
+//    padding: 0;
+//    margin: 0;
+//  }
+
+//  iframe {
+//    width: 100%;
+//    height: 270px;
+//  }
+// }
+
+// @media only screen and (max-width: 750px) {
+//  .example-viewport {
+//    height: 280px;
+//    width: 250px;
+//  }
+//  h1{
+//    padding-top: 20px;
+//  }
+//  .example-container {
+
+//    position:absolute ;
+//    padding: 0;
+//    margin: 0;
+//    border-color: red;
+//  }
+
+//  .example-sidenav-content {
+//    display: flex;
+//    height: 100%;
+//    align-items: center;
+//    justify-content: start;
+//  }
+
+//  .example-sidenav {
+//   // padding: 20px;
+//   position: absolute;
+//  }
+
+//  .toggle{
+//    display: block;
+//  }
+//  .mat-drawer-inner-container{
+//    height: auto;
+//  }
+//  iframe {
+//    width: 100%;
+//    height: 410px;
+//  }
+// }
+// .sidebar{
+//  background-color: white;
+// }
+// ::ng-deep .mat-drawer-inner-container {
+//  background-color:white;
+//  -webkit-overflow-scrolling: touch;
+//  border: none;
+// }
+
+// .example-container {
+
+//  height: 550px;
+//  padding: 0;
+//  margin: 0;
+//  border-color: red;
+// }
+
+// .example-sidenav-content {
+//  display: flex;
+//  height: 100%;
+//  align-items: center;
+//  justify-content: start;
+// }
+
+.SubVideoitems {
+  a {
+    border: 1px solid;
+    color: black;
+  }
+}
+
+.SubVideoitems {
+  a:hover {
+    color: #00bcd4;
+    border: 1px solid #00bcd4 !important;
+  }
+}
+
+// ng classes
+.videosIncomplete{
+  cursor: not-allowed !important;
+  pointer-events: none;
+}

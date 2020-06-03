@@ -1,0 +1,556 @@
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="row justify-content-center mt-4" *ngIf="viewstep == '1'">
+                    <div class="col-md-12  my-5">
+                        <p class="h3 text-center"> 1. What type of course you're making?</p>
+                        <p *ngIf="EditMode" class="orange-text text-center">We can not cahnge the Course type</p>
+                    </div>
+
+                    <div class="col-md-3" [ngClass]="{'EditMode': EditMode }">
+                        <mdb-card class="sessionCards" (click)="SessionType = 'Online'"
+                            [ngClass]="{'SelectedSession' : SessionType == 'Online' }">
+                            <mdb-card-body>
+                                <mdb-card-title class="flex-center">
+                                    <p class="h5 text-center">
+                                        <mdb-icon fas icon="laptop" size="lg" class="cyan-text"></mdb-icon>
+                                        <br>
+                                        <br>
+                                        Online
+                                    </p>
+                                </mdb-card-title>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+                    <div class="col-md-3" [ngClass]="{'EditMode': EditMode }">
+                        <mdb-card class="sessionCards" (click)="SessionType = 'Offline'"
+                            [ngClass]="{'SelectedSession' : SessionType == 'Offline' }">
+                            <mdb-card-body>
+                                <mdb-card-title class="flex-center">
+                                    <p class="h5 text-center ">
+                                        <mdb-icon far icon="newspaper" size="lg" class="cyan-text"></mdb-icon>
+                                        <br>
+                                        <br>
+                                        Offline
+                                    </p>
+                                </mdb-card-title>
+                            </mdb-card-body>
+                        </mdb-card>
+                    </div>
+
+
+
+                    <div class="col-md-12 text-center my-5">
+                        <button mdbBtn type="button" color="cyan" [disabled]="SessionType == ''" mdbWavesEffect
+                            (click)="setCoursetype()"> Next
+                            <mdb-icon fas icon="angle-right"></mdb-icon></button>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <div class="row justify-content-center mt-4" *ngIf="viewstep == '2'">
+
+                    <div class="col-md-8">
+                        <p class="h3"> 2. What is the title of the course?</p>
+                        <mdb-card class="TitleCards mt-4 mb-5">
+                            <mdb-card-body class="mx-5">
+                                <mdb-card-title>
+                                    <form #courseTitle="ngForm" novalidate>
+                                        <div class="input-group my-4">
+                                            <input type="text" class="form-control" placeholder="Course Name"
+                                                name="courseName" [(ngModel)]="Payload.courseName" required
+                                                [disabled]="EditMode">
+                                        </div>
+
+                                        <select class="browser-default custom-select my-4" name="tags"
+                                            [(ngModel)]="Payload.tags" required [disabled]="EditMode">
+                                            <option selected value="">Choose a category</option>
+                                            <option value="Business">Business</option>
+                                            <option value="Design">Design</option>
+                                            <option value="Photography">Photography</option>
+                                            <option value="Development">Development</option>
+                                            <option value="Marketing">Marketing</option>
+                                            <option value="IT & Software">IT & Software</option>
+                                        </select>
+
+                                        <select class="browser-default custom-select my-4" name="courseLevel"
+                                            [(ngModel)]="Payload.courseLevel" required>
+                                            <option selected value="">Course Level</option>
+                                            <option value="programming">Programming</option>
+                                            <option value="nonprogramming">Non Programming</option>
+                                        </select>
+
+                                        <div class="md-form my-4">
+                                            <textarea type="text" id="form7" class="md-textarea form-control" mdbInput
+                                                name="prerequisites" [(ngModel)]="Payload.prerequisites"
+                                                required></textarea>
+                                            <label for="form7">Prerequisites..</label>
+                                        </div>
+                                    </form>
+                                </mdb-card-title>
+                            </mdb-card-body>
+                        </mdb-card>
+
+                    </div>
+
+
+
+                    <div class="col-md-10 text-center my-4">
+                        <button mdbBtn type="button" color="pink" outline="true" class="float-left" mdbWavesEffect
+                            (click)="viewstep = '1'">
+                            <mdb-icon fas icon="angle-left"></mdb-icon> prev
+                        </button>
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect
+                            [disabled]="!courseTitle.valid" (click)="viewstep = '3'"> Next <mdb-icon fas
+                                icon="angle-right"></mdb-icon></button>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="row justify-content-center mt-4" *ngIf="viewstep == '3'">
+
+                    <div class="col-md-8">
+                        <p class="h3"> 3. About course</p>
+                        <mdb-card class="TitleCards mt-4 mb-5">
+                            <mdb-card-body class="mx-5">
+                                <mdb-card-title>
+
+                                    <form #aboutCourse="ngForm" novalidate>
+                                        <div class="input-group  my-4">
+                                            <input type="number" class="form-control" placeholder="Course Cost"
+                                                name="cost" [(ngModel)]="Payload.cost" required>
+                                        </div>
+                                        <div class="input-group  my-4">
+                                            <input type="text" class="form-control" placeholder="Course Time (days)"
+                                                name="duration" [(ngModel)]="Payload.duration" required>
+                                        </div>
+
+                                        <div class="input-group  my-4">
+                                            <select class="browser-default custom-select " name="skillLevel"
+                                                [(ngModel)]="Payload.skillLevel" required>
+                                                <option selected value="">Choose Skill Level</option>
+                                                <option value="Beginner">Beginner</option>
+                                                <option value="Advanced">Advanced</option>
+                                                <option value="Expert">Expert</option>
+
+                                            </select>
+                                        </div>
+
+                                        <div class="input-group  my-4">
+                                            <mat-form-field class="w-100">
+                                                <mat-label>Start Date</mat-label>
+                                                <input matInput [matDatepicker]="StartDate" name="startDate"
+                                                    [(ngModel)]="Payload.startDate">
+                                                <mat-datepicker-toggle matSuffix [for]="StartDate">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #StartDate></mat-datepicker>
+                                            </mat-form-field>
+                                        </div>
+
+                                        <!-- <div class="input-group  my-4">
+                                            <select class="browser-default custom-select" name="courseMode"
+                                                [(ngModel)]="Payload.courseMode" required>
+                                                <option selected value="">Select Course Mode </option>
+                                                <option value="1">Published</option>
+                                                <option value="0">Save</option>
+                                            </select>
+                                        </div> -->
+
+                                        <div class="md-form my-4">
+                                            <textarea type="text" id="form7" class="md-textarea form-control" mdbInput
+                                                name="description" [(ngModel)]="Payload.description"
+                                                required></textarea>
+                                            <label for="form7">Description..</label>
+                                        </div>
+
+                                    </form>
+
+                                </mdb-card-title>
+                            </mdb-card-body>
+                        </mdb-card>
+
+
+
+                        <div class="row" *ngIf="Payload.courseType == 'Online'">
+
+                            <div class="col-12">
+                                <button mdbBtn type="button" size="sm" color="pink" class="float-left" mdbWavesEffect
+                                    (click)="AddBatch()"> Add new batch</button>
+                            </div>
+                            <div class="col-12">
+                                <mdb-card class="SyllabusCards mt-4 mb-5"
+                                    *ngFor="let item of OnlineCourseBaches; let i = index">
+                                    <div>
+                                        <mdb-icon fas icon="times" class="mr-2 pt-2 float-right cursor-pointer"
+                                            (click)="DeleteBatch(item , i)" [hidden]="item.EditMode">
+                                        </mdb-icon>
+                                    </div>
+                                    <mdb-card-body class="px-5">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" placeholder="Batch Name"
+                                                    name="bachname{{i}}bachname" [(ngModel)]="item.bachname"
+                                                    [readonly]="item.EditMode" required>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <!-- <input type="number" class="form-control"
+                                                    placeholder="Number Of People (Maximum 50)"
+                                                    name="numberOfPeople{{i}}numberOfPeople" 
+                                                    [(ngModel)]="item.numberOfPeople" required> -->
+                                                <select class="browser-default custom-select"
+                                                    name="numberOfPeople{{i}}numberOfPeople"
+                                                    [(ngModel)]="item.numberOfPeople" required>
+                                                    <option selected value="">Number Of People (Maximum 50) </option>
+                                                    <option *ngFor="let item of NumberOfStudentsList" value={{item}}>
+                                                        {{item}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </mdb-card-body>
+                                </mdb-card>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-10 text-center my-4">
+                        <button mdbBtn type="button" color="pink" outline="true" class="float-left" mdbWavesEffect
+                            (click)="viewstep = '2'">
+                            <mdb-icon fas icon="angle-left"></mdb-icon> prev
+                        </button>
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect [hidden]="EditMode"
+                            [disabled]="!aboutCourse.valid" (click)="aboutThisCourse(false)"> Next <mdb-icon fas
+                                icon="angle-right"></mdb-icon></button>
+
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect
+                            [disabled]="!aboutCourse.valid" (click)="aboutThisCourse(false)" [hidden]="!EditMode">
+                            Update
+                            <mdb-icon fas icon="angle-right"></mdb-icon></button>
+
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect
+                            [disabled]="!aboutCourse.valid" (click)="dontUpdateNext()" [hidden]="!EditMode"> Next
+                            <mdb-icon fas icon="angle-right"></mdb-icon></button>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row justify-content-center mt-4" *ngIf="viewstep == '4'">
+
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button mdbBtn class="float-right" size="sm" type="button" color="cyan" mdbWavesEffect
+                                    (click)="AddSubTopicModal.show(); openaddsubtopics();">Add Subtopic</button>
+                                <button mdbBtn class="float-right" size="sm" type="button" color="cyan" mdbWavesEffect
+                                    (click)="AddTopicModal.show(); OpenAddTopicPop()">Add Topic</button>
+                                <p class="h3 "> 4. Syllabus Upload</p>
+
+                            </div>
+                        </div>
+
+                        <mdb-card class="SyllabusCards mt-4 mb-5">
+                            <mdb-card-body class="px-5">
+                                <mdb-card-title>
+
+                                    <mat-accordion cdkDropList (cdkDropListDropped)="drop($event)">
+                                        <mat-expansion-panel class="my-3" cdkDrag
+                                            *ngFor="let item of AllTopics; let i =index;">
+                                            <mat-expansion-panel-header class="border-bottom">
+                                                <mat-panel-title>
+                                                    <b> {{item.topicName}}</b>
+                                                </mat-panel-title>
+                                                <mat-panel-description class="text-right">
+                                                    <div class="text-right w-100">
+                                                        <mdb-icon fas icon="pen" class="mr-2 "
+                                                            (click)="AddTopicModal.show(); EditTopic(item)"></mdb-icon>
+                                                        <mdb-icon fas icon="times" class="mr-2"
+                                                            (click)="DeleteTopicModal.show(); ChooseDeleteTopic(item)">
+                                                        </mdb-icon>
+                                                    </div>
+                                                </mat-panel-description>
+                                            </mat-expansion-panel-header>
+
+
+                                            <div class="row">
+                                                <div class="col-md-12 pt-3">
+                                                    <mat-accordion cdkDropList
+                                                        (cdkDropListDropped)="dropSubtopics($event , item)">
+                                                        <mat-expansion-panel class="my-3" cdkDrag
+                                                            *ngFor="let Subitem of item.SubTopicsData; let i = index;">
+                                                            <mat-expansion-panel-header class="border-bottom">
+                                                                <mat-panel-title>
+                                                                    {{Subitem.subTopicName}}
+                                                                </mat-panel-title>
+                                                                <mat-panel-description class="text-right">
+                                                                    <div class="text-right w-100">
+                                                                        <mdb-icon fas icon="pen" class="mr-2"
+                                                                            (click)="AddSubTopicModal.show(); EditSelectedSubTopic(Subitem);">
+                                                                        </mdb-icon>
+                                                                        <mdb-icon fas icon="times" class="mr-2"
+                                                                            (click)="DeleteSubTopicModal.show(); ChooseDeleteSubTopic(Subitem)">
+                                                                        </mdb-icon>
+                                                                    </div>
+                                                                </mat-panel-description>
+                                                            </mat-expansion-panel-header>
+
+                                                            <div class="row"
+                                                                *ngIf="CourseDetails.courseType == 'Offline'">
+                                                                <div class="col-md-12  pt-4 pb-3 text-center">
+
+                                                                    <form #selectFile="ngForm" novalidate
+                                                                        class="d-none">
+                                                                        <input type="file" #VideoUpload
+                                                                            (change)="fileChangeEvent($event , Subitem)"
+                                                                            placeholder="Upload Video..."
+                                                                            accept="video/*" required />
+                                                                    </form>
+
+                                                                    <a href="javascript:void(0)"
+                                                                        (click)="VideoUpload.click()">
+                                                                        <mdb-icon far icon="play-circle" size="2x"
+                                                                            color="cyan-text">
+                                                                        </mdb-icon>
+                                                                        <br>
+                                                                        Upload Video
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row  pt-4 pb-3 justify-content-center"
+                                                                *ngIf="CourseDetails.courseType == 'Online'">
+                                                                <div class="col-md-4 pt-3 text-center">
+                                                                    <a href="javascript:void(0)">
+                                                                        <mat-slide-toggle name="programming"
+                                                                            [(ngModel)]="Subitem.programming"
+                                                                            (change)="UpdateProgramStatus(Subitem)">
+                                                                            Programming
+                                                                        </mat-slide-toggle>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+
+                                                        </mat-expansion-panel>
+                                                    </mat-accordion>
+                                                    <button mdbBtn class="float-right" size="sm" type="button"
+                                                        color="cyan" mdbWavesEffect
+                                                        (click)="AddSubTopicModal.show(); SelectTopicForSubtopics(item)">Add
+                                                        Subtopic</button>
+
+                                                </div>
+                                            </div>
+
+
+                                        </mat-expansion-panel>
+
+                                    </mat-accordion>
+
+                                </mdb-card-title>
+                            </mdb-card-body>
+                        </mdb-card>
+
+
+
+                    </div>
+
+                    <div class="col-md-10 text-center my-4">
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect
+                            (click)="courseMode = '1'; aboutThisCourse(true)"> Published </button>
+
+                        <button mdbBtn type="button" color="cyan" class="float-right" mdbWavesEffect
+                            (click)="courseMode = '0'; aboutThisCourse(true)"> Save </button>
+                        <!-- routerLink="/home/mentor/dashboard"  -->
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div mdbModal #AddTopicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="AddTopicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add Topic</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 px-4">
+                        <form #topicsAdd='ngForm' novalidate>
+                            <div class="input-group  my-4">
+                                <input type="text" class="form-control" placeholder="Enter Topic Name" name="topicName"
+                                    [(ngModel)]="addCourseTopics.topicName" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                    (click)="AddTopicModal.hide()" mdbWavesEffect>Close</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="!EditTopicId"
+                    [disabled]="!topicsAdd.valid" mdbWavesEffect (click)="AddTopics()">Add Topic</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="EditTopicId"
+                    [disabled]="!topicsAdd.valid" mdbWavesEffect (click)="UpdateTopic()">Update Topic</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div mdbModal #AddSubTopicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="AddSubTopicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title w-100" id="myModalLabel">Add Sub Topic</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 px-4">
+                        <form #SubtopicsAdd='ngForm' novalidate>
+
+                            <select class="browser-default custom-select my-3" name="topicId"
+                                [(ngModel)]="addCourseSubTopics.topicId" required (change)="changeTopic()"
+                                [disabled]="topicAlteadySelected">
+                                <option value="" selected>Choose a Topic</option>
+                                <option value="{{item.topicId}}" *ngFor="let item of AllTopics">{{item.topicName}}
+                                </option>
+
+                            </select>
+
+
+                            <div class="input-group  my-3">
+                                <input type="text" class="form-control" placeholder="Enter Sub Topic Name"
+                                    name="subTopicName" [(ngModel)]="addCourseSubTopics.subTopicName" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                    (click)="AddSubTopicModal.hide()" mdbWavesEffect>Close</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="!EditSubTopicId"
+                    [disabled]="!SubtopicsAdd.valid" mdbWavesEffect (click)="AddSubTopics()">Add SubTopics</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" *ngIf="EditSubTopicId"
+                    [disabled]="!SubtopicsAdd.valid" mdbWavesEffect (click)="UpdateSubTopic()">Update SubTopics</button>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div mdbModal #DeleteTopicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="DeleteTopicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 class="modal-title w-100" id="myModalLabel">Topic Name : {{SelectedTopicForDeleting.topicName}}</h3>
+            </div>
+            <div class="modal-body">
+
+                <p class="h5">Do you want to delete this topic ? </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                    (click)="DeleteTopicModal.hide()" mdbWavesEffect>No</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+                    (click)="DeleteTopicModal.hide();DeleteTopics()">yes</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div mdbModal #DeleteSubTopicModal="mdbModal" class="modal fade" tabindex="-1" role="dialog"
+    aria-labelledby="myBasicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md " role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="DeleteSubTopicModal.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h3 class="modal-title w-100" id="myModalLabel">Subtopic Name : {{SelectedTopicForDeleting.topicName}}
+                </h3>
+            </div>
+            <div class="modal-body">
+
+                <p class="h5">Do you want to delete this subtopic ? </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close"
+                    (click)="DeleteSubTopicModal.hide()" mdbWavesEffect>No</button>
+
+                <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect
+                    (click)="DeleteSubTopicModal.hide();DeleteSubTopics()">yes</button>
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<section>
+  <!--Navbar-->
+  <mdb-navbar SideClass="navbar navbar-expand-lg  navbar-light blue-grey lighten-5 fixed-top "
+    [containerInside]="false">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand class="border-0">
+      <a routerLink="/home" class="navbar-brand">
+        <img src="./assets/images/home/logo_full.png" alt="logo" width="180px">
+      </a>
+    </mdb-navbar-brand>
+    <!-- Collapsible content -->
+    <links>
+      <!-- Links -->
+      <ul class="navbar-nav mx-auto w-75">
+        <li class="nav-item dropdown " dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            {{defaultFilter}}<span class="caret"></span></a>
+          <div *dropdownMenu class="dropdown-menu dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="setFilters('Mentors')">Mentors</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect  (click)="setFilters('Courses')">Courses</a>
+          </div>
+        </li>
+        <li class="nav-item w-100">
+          <div class="my-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </li>
+
+      </ul>
+    </links>
+
+
+
+    <links>
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item px-2  p-0 text-center naviconsalign float-right">
+          <a class="nav-link waves-light py-1" mdbWavesEffect routerLink="/home" >
+            <mdb-icon fas icon="home" size="lg"></mdb-icon>
+            <br>
+            <small>Home</small>
+            <i class="fas fa-home-lg-alt"></i>
+          </a>
+
+        </li>
+        <li class="nav-item px-2 p-0 text-center naviconsalign">
+          <a class="nav-link waves-light py-1" mdbWavesEffect
+          mdbPopover="No messages yet"  
+          placement="bottom" >
+            <mdb-icon fas icon="envelope" size="lg"></mdb-icon>
+            <br>
+            <small>Messages</small>
+          </a>
+        </li>
+        <li class="nav-item px-2 p-0 text-center naviconsalign"
+        mdbPopover="No notifications yet"
+        placement="bottom" >
+          <a class="nav-link waves-light py-1" mdbWavesEffect>
+            <mdb-icon fas icon="bell" size="lg"></mdb-icon>
+            <br>
+            <small>Notifications</small>
+          </a>
+        </li>
+
+
+      </ul>
+      <!-- Links -->
+
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item avatar dropdown" dropdown>
+          <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+            {{userInfo.firstname}} {{userInfo.lastname}} <img
+              src="https://mdbootstrap.com/img/Photos/Avatars/avatar-2.jpg" alt="" width="40px"
+              class="img-fluid rounded-circle z-depth-0"></a>
+          <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+            <a class="dropdown-item waves-light" mdbWavesEffect (click)="mydashboard()">My
+              Dashboard</a>
+            <a class="dropdown-item waves-light" mdbWavesEffect 
+              (click)="logoutnow()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </links>
+    <!-- Collapsible content -->
+
+  </mdb-navbar>
+  <!--/.Navbar-->
+</section>
+
+
+
+
+
+
+<div class="" style="overflow: hidden;">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div mdbModal #logout="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="logout.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h3 class="modal-title w-100" id="myModalLabel">Logout </h3>
+      </div>
+      <div class="modal-body">
+
+        <p class="h6 text-center">Are you sure, you want to logout? </p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" mdbBtn color="cyan" size="sm" class="waves-light" aria-label="Close"
+          (click)="logout.hide()" mdbWavesEffect>No</button>
+
+        <button type="button" mdbBtn color="pink" size="sm" class="relative waves-light" mdbWavesEffect
+          (click)="logout.hide();logoutnow()">yes</button>
+
+
+      </div>
+    </div>
+  </div>
+</div> -->

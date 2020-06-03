@@ -1,0 +1,48 @@
+.intro {
+  // background-image:linear-gradient(180deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85));
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // opacity: 0.75;
+  // background-color: black;
+}
+.inputsearch {
+  position: absolute;
+  top: 0px;
+}
+.view img,
+.view video {
+  position: relative;
+  display: initial !important;
+}
+.hea {
+  font-size: 50px;
+  font-weight: 400;
+  color: #333;
+  line-height: 50px;
+}
+.para {
+  font-size: 35px;
+  color: #888;
+  font-weight: 300;
+  line-height: 40px;
+  margin-top: 5px;
+  display: inline-block;
+}
+.tabl {
+  font-family: "Nunito", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: none;
+  font-size: 18px;
+}
+.textfont {
+  font-family: "nunito", "helveticaneue", "helvetica neue", "Helvetica", "Arial", "sans-serif";
+  text-transform: none;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+}
+#myVideo {
+  right: 0;
+  bottom: 0;
+  width: 100% !important;
+}
